@@ -1,16 +1,14 @@
 package com.baiyi.tencentqq.drag;
 
-import com.baiyi.tencentqq.MainActivity;
-
 import android.content.Context;
 import android.support.v4.widget.ViewDragHelper;
 import android.support.v4.widget.ViewDragHelper.Callback;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-
 
 /**
  * 
@@ -21,7 +19,8 @@ import android.widget.FrameLayout;
  */
 public class DragLayout extends FrameLayout {
 
-	private ViewDragHelper mDragHelper;
+	protected static final String TAG = "TAG";
+	private ViewDragHelper mDragHelper; 
 	private ViewGroup mLeftContent;
 	private ViewGroup mMainContent;
 	
@@ -42,20 +41,69 @@ public class DragLayout extends FrameLayout {
 	}
 	
 	ViewDragHelper.Callback mCallback = new Callback() {
+		//c. 重写事件
+		
 
 		//1.根据返回结果来决定当前child是否可以拖拽
 		//child 是当前被拖拽的view
 		//pointerId 区分多点触摸的id
 		@Override
 		public boolean tryCaptureView(View child, int pointerId) {
-			return child == mMainContent;
+			Log.d(TAG,"tryCaptureView："+child);
+			
+			return true;
 		}
 		
+		@Override
+		public void onViewCaptured(View capturedChild, int activePointerId) {
+			Log.d(TAG,"onViewCaptured："+capturedChild);
+			//当View--capturedChild被捕获的时候调用
+			super.onViewCaptured(capturedChild, activePointerId);
+		}
+		
+		@Override
+		public int getViewHorizontalDragRange(View child) {
+			// TODO Auto-generated method stub
+			return super.getViewHorizontalDragRange(child);
+		}
 
 		//2.根据建议值修正将要移动到的横向的位置
+		@Override
 		public int clampViewPositionHorizontal(View child, int left, int dx) {
 			return left;
 		}
+		
+		@Override
+		public int clampViewPositionVertical(View child, int top, int dy) {
+			// TODO Auto-generated method stub
+			return super.clampViewPositionVertical(child, top, dy);
+		}
+
+		@Override
+		public void onViewPositionChanged(View changedView, int left, int top,
+				int dx, int dy) {
+			// TODO Auto-generated method stub
+			super.onViewPositionChanged(changedView, left, top, dx, dy);
+		}
+
+
+
+		@Override
+		public void onViewReleased(View releasedChild, float xvel, float yvel) {
+			// TODO Auto-generated method stub
+			super.onViewReleased(releasedChild, xvel, yvel);
+		}
+
+
+		@Override
+		public void onViewDragStateChanged(int state) {
+			// TODO Auto-generated method stub
+			super.onViewDragStateChanged(state);
+		}
+		
+		
+		
+		
 		
 	};
 
@@ -68,8 +116,8 @@ public class DragLayout extends FrameLayout {
 
 		//传递给mDragHelper 是否拦截ev
 		return mDragHelper.shouldInterceptTouchEvent(ev);
-
 	}
+	
 	
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
