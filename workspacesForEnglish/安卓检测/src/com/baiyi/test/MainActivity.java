@@ -1,10 +1,9 @@
 package com.baiyi.test;
 
-import com.baiyi.packageofView.Myview;
-
-import android.os.Bundle;
 import android.app.Activity;
-import android.view.Menu;
+import android.os.Bundle;
+
+import com.baiyi.packageofView.Myview;
 
 public class MainActivity extends Activity {
 	

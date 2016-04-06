@@ -23,7 +23,7 @@ public class Myview extends View {
 	 */
 	public Myview(Context context, AttributeSet attrs) {
 		super(context, attrs);
-
+		
 	}
 
 	/**
@@ -32,7 +32,7 @@ public class Myview extends View {
 	@Override
 	public void draw(Canvas canvas) {
 		super.draw(canvas);
-
+		
 	}
 
 
@@ -42,10 +42,10 @@ public class Myview extends View {
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-
-	
-	
+		
 	}
+	
+	
 	
 }
 
