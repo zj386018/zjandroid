@@ -40,6 +40,7 @@ public class MainActivity extends Activity {
 	private ImageView home;
 	private ImageView menu;
 
+	//接受子线程传过来的刷新主界面的消息
 	private Handler handler = new Handler() {  
         public void handleMessage(Message msg) {   
             switch (msg.what) {   
