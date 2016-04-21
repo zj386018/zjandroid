@@ -2,10 +2,11 @@ package com.baiyi.main;
 
 import java.util.ArrayList;
 
+import com.baiyi.bean.Ad;
+import com.baiyi.utils.AnimationUtil;
+
 import android.app.Activity;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
@@ -18,39 +19,24 @@ import android.widget.LinearLayout.LayoutParams;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.baiyi.bean.Ad;
-import com.baiyi.utils.AnimationUtil;
-
 public class MainActivity extends Activity {
 
-	// 头部图片循环播放
+	//头部图片循环播放
 	private ViewPager viewPager;
 	private ArrayList<Ad> adList = new ArrayList<Ad>();
 	private TextView tv_intro;
 	private LinearLayout dot_layout;
-
-	// 底部菜单按钮
+	
+	//底部菜单按钮
 	private RelativeLayout level1;
 	private RelativeLayout level2;
 	private RelativeLayout level3;
 	private boolean isShowLevel1 = true;
 	private boolean isShowLevel2 = true;
 	private boolean isShowLevel3 = true;
-
+	
 	private ImageView home;
 	private ImageView menu;
-
-	private Handler handler = new Handler() {  
-        public void handleMessage(Message msg) {   
-            switch (msg.what) {   
-                 case 1:   
-                	 viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
-                      break;   
-            }   
-            super.handleMessage(msg);   
-       }   
-  };  
-//			viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -71,57 +57,58 @@ public class MainActivity extends Activity {
 		level1 = (RelativeLayout) findViewById(R.id.level1);
 		level2 = (RelativeLayout) findViewById(R.id.level2);
 		level3 = (RelativeLayout) findViewById(R.id.level3);
-
+		
 		home = (ImageView) findViewById(R.id.home);
 		menu = (ImageView) findViewById(R.id.menu);
-
+		
+		
 	}
-
-	class MenuClickListener implements OnClickListener {
+	
+	class MenuClickListener implements OnClickListener{
 
 		@Override
 		public void onClick(View view) {
-			switch (view.getId()) {
-			case R.id.home:
-				homeMenu();
-				break;
-			case R.id.menu:
-				menuMenu();
-				break;
+				switch (view.getId()) {
+				case R.id.home:
+					homeMenu();
+					break;
+				case R.id.menu:
+					menuMenu();
+					break;
 
-			default:
-				break;
-			}
+				default:
+					break;
+				}
 		}
 	}
-
-	private void homeMenu() {
+	
+	private void homeMenu(){
 		int startOffSet = 0;
-
-		if (isShowLevel2) {
-			if (isShowLevel3) {
+		
+		if(isShowLevel2){
+			if(isShowLevel3){
 				AnimationUtil.closeMenu(level3, startOffSet);
-				startOffSet += 200;
-				isShowLevel3 = !isShowLevel3;
+				startOffSet+=200;
+			isShowLevel3 = !isShowLevel3;
 			}
 			AnimationUtil.closeMenu(level2, startOffSet);
-		} else {
+		}else{
 			AnimationUtil.showMenu(level2, startOffSet);
 		}
 		isShowLevel2 = !isShowLevel2;
 	}
 
-	private void menuMenu() {
-
-		if (isShowLevel3) {
+	private void menuMenu(){
+		
+		if(isShowLevel3){
 			AnimationUtil.closeMenu(level3, 0);
-		} else {
+		}else{
 			AnimationUtil.showMenu(level3, 0);
 		}
-
+		
 		isShowLevel3 = !isShowLevel3;
 	}
-
+	
 	private void intListener() {
 
 		viewPager.setOnPageChangeListener(new OnPageChangeListener() {
@@ -145,18 +132,18 @@ public class MainActivity extends Activity {
 
 		home.setOnClickListener(new MenuClickListener());
 		menu.setOnClickListener(new MenuClickListener());
-
+		
 	}
 
 	/**
 	 * 更新文本框的文本内容和点dot的状态
 	 */
 	private void updataIntroAndDot() {
-		int currentPage = viewPager.getCurrentItem() % adList.size();// 获取当前viewPager的页面编号
+		int currentPage = viewPager.getCurrentItem();// 获取当前viewPager的页面编号
 		tv_intro.setText(adList.get(currentPage).getIntro());
 
 		for (int i = 0; i < dot_layout.getChildCount(); i++) {
-			dot_layout.getChildAt(i).setEnabled(i == currentPage);
+			dot_layout.getChildAt(i).setEnabled(i==currentPage);
 		}
 
 	}
@@ -171,31 +158,8 @@ public class MainActivity extends Activity {
 
 		initDots();
 		viewPager.setAdapter(new MyPagerAdapter());
-		int centerValue = Integer.MAX_VALUE / 2;
-		int value = centerValue % adList.size();
-		centerValue = centerValue - value;
-		viewPager.setCurrentItem(centerValue);
 		updataIntroAndDot();
-		new Thread(new MyThread()).start();
-//		handler.sendEmptyMessageAtTime(1, 3000);
 	}
-	
-	class MyThread implements Runnable {   
-        public void run() {  
-             while (!Thread.currentThread().isInterrupted()) {    
-                     
-                  Message message = new Message();   
-                  message.what = 1;   
-                    
-                  MainActivity.this.handler.sendMessage(message);   
-                  try {   
-                       Thread.sleep(3000);    
-                  } catch (InterruptedException e) {   
-                       Thread.currentThread().interrupt();   
-                  }   
-             }   
-        }   
-   } 
 
 	/**
 	 * 初始化点 dot，
@@ -226,9 +190,7 @@ public class MainActivity extends Activity {
 		 */
 		@Override
 		public int getCount() {
-			return Integer.MAX_VALUE;
-			// return 100;
-			// return adList.size();
+			return adList.size();
 		}
 
 		/**
@@ -250,8 +212,7 @@ public class MainActivity extends Activity {
 					null);
 			ImageView imageView = (ImageView) view.findViewById(R.id.image);
 
-			imageView.setImageResource(adList.get(position % adList.size())
-					.getIconResId());
+			imageView.setImageResource(adList.get(position).getIconResId());
 			container.addView(view);// 一定不能少：将view加入到viewpager当中
 
 			return view;
