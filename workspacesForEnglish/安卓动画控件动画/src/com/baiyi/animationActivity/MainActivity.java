@@ -49,12 +49,12 @@ public class MainActivity extends Activity implements OnClickListener {
 			break;
 		case R.id.main_bt_propertyAnimation:
 			Intent intent2 = new Intent(MainActivity.this,
-					PropertyAnimation.class);
+					MyProperty.class);
 			startActivity(intent2);
 			break;
 		case R.id.main_bt_property:
 			Intent intent3 = new Intent(MainActivity.this,
-					Property.class);
+					PropertyAnimation.class);
 			startActivity(intent3);
 			break;
 

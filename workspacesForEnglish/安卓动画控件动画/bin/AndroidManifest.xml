@@ -24,9 +24,9 @@
         </activity>
         <activity android:name="com.baiyi.animationActivity.Animation1Activity" >
         </activity>
-        <activity android:name="com.baiyi.animationActivity.PropertyAnimation" >
+        <activity android:name="com.baiyi.animationActivity.MyProperty" >
         </activity>
-        <activity android:name="com.baiyi.animationActivity.Property">
+        <activity android:name="com.baiyi.animationActivity.PropertyAnimation">
         </activity>
     </application>
 
