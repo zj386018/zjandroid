@@ -22,15 +22,22 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity implements OnClickListener {
 
+	//主界面控件
 	private EditText editText;
 	private ImageView iv_select;
-
-	private ArrayList<String> lists = new ArrayList<String>();
-	private MyAdapter adapter;
-	private ListView listView;
-
+	
+	//下拉窗口控件
 	private int popuWindowHeight = 300;
+	//动态创建控件（并没有用xml文件配置）
 	private PopupWindow popupWindow;
+	
+	//listview中的数据。
+	private ArrayList<String> lists = new ArrayList<String>();
+	//listview控件。
+	private ListView listView;
+	//listview控件适配器。
+	private MyAdapter adapter;
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -104,17 +111,20 @@ public class MainActivity extends Activity implements OnClickListener {
 		popupWindow.showAsDropDown(editText, 0, 0);
 	}
 
+	//点击事件监听（也就是下拉图标的点击事件）
 	@Override
 	public void onClick(View arg0) {
-
 		switch (arg0.getId()) {
 		case R.id.iv_select:
 			showNumberList();
-			Toast.makeText(MainActivity.this, "点击下拉", Toast.LENGTH_LONG);
 			break;
 		}
 	}
 
+	/**
+	 * listview适配器
+	 *
+	 */
 	class MyAdapter extends BaseAdapter {
 
 		@Override
@@ -132,6 +142,9 @@ public class MainActivity extends Activity implements OnClickListener {
 			return arg0;
 		}
 
+		/**
+		 * 为listview填充数据和绑定控件
+		 */
 		@Override
 		public View getView(final int arg0, View arg1, ViewGroup arg2) {
 			final View view = View.inflate(MainActivity.this,
@@ -158,7 +171,7 @@ public class MainActivity extends Activity implements OnClickListener {
 					// 若没有数据的时候，popuWindow应该改变为不可见。
 					if (lists.size() == 0) {
 						popupWindow.dismiss();
-						iv_select.setVisibility(View.GONE);
+						iv_select.setVisibility(View.GONE);//将下拉图标变为不可见
 					}
 				}
 			});

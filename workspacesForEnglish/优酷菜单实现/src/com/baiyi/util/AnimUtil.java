@@ -7,11 +7,13 @@ import android.widget.RelativeLayout;
 
 public class AnimUtil {
 	
+	//用于统计动画是否在执行，若不为0，则表示有动画在执行；为0，表示没有动画在执行。
 	public static int animCount = 0;
 	
 
 	/************************
-	 *      关闭菜单动画       
+	 *      关闭菜单动画
+	 *      当点击上级菜单的点击按钮时，下一级别的菜单旋转消失的动画。       
 	 ************************/
 	public static void closeMenu(RelativeLayout rl,int startOffset){
 		
@@ -36,6 +38,7 @@ public class AnimUtil {
 	
 	/************************
 	 *      打开菜单动画      * 
+	 *      当点击上级菜单的点击按钮时，下一级别的菜单旋转出来的动画。
 	 ************************/
 	public static void showMenu(RelativeLayout rl,int startOffset){
 		
@@ -59,12 +62,18 @@ public class AnimUtil {
 	
 	static class MyAnimationListener implements AnimationListener{
 
+		/**
+		 * 动画开始时自动调用该方法。
+		 */
 		@Override
 		public void onAnimationStart(Animation arg0) {
 			animCount++;
 			
 		}
 
+		/**
+		 * 动画结束时自动调用该方法。
+		 */
 		@Override
 		public void onAnimationEnd(Animation arg0) {
 			animCount--;
@@ -75,10 +84,6 @@ public class AnimUtil {
 		}
 		
 	}
-	
-	
-	
-	
 	
 
 }

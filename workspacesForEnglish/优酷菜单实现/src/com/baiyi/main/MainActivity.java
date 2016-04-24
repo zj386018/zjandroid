@@ -25,6 +25,9 @@ public class MainActivity extends Activity implements OnClickListener {
 		initListener();
 	}
 
+	/**
+	 * 初始化控件
+	 */
 	private void initView() {
 		setContentView(R.layout.activity_main);
 		iv_home = (ImageView) findViewById(R.id.iv_home);
@@ -35,11 +38,22 @@ public class MainActivity extends Activity implements OnClickListener {
 
 	}
 
+	/**
+	 * 初始化事件监听
+	 */
 	private void initListener() {
 		iv_home.setOnClickListener(this);
 		iv_menu.setOnClickListener(this);
 	}
-	
+
+	/**
+	 * 手机HOME键和MENU键的事件监听。
+	 * 现在的手机似乎没有这个了。。。
+	 * ！！！（！！（所以一般可以不用管这个）！！）！！！
+	 * 
+	 * 该方法主要是关闭所有菜单，包括第一级菜单。
+	 * 			 打开第一级菜单。
+	 */
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		
@@ -77,7 +91,10 @@ public class MainActivity extends Activity implements OnClickListener {
 	}
 	
 	
-
+	
+	/**
+	 * 菜单点击事件监听
+	 */
 	@Override
 	public void onClick(View view) {
 		switch (view.getId()) {
