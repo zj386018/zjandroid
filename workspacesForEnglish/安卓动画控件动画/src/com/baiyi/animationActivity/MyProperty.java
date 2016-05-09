@@ -71,7 +71,7 @@ public class MyProperty extends Activity {
 		ObjectAnimator oa = null;
 		switch (count_Roatation % 3) {
 		case 0:
-			oa = ObjectAnimator.ofFloat(arg0, "rotation", 0f, 400f, 400f);
+			oa = ObjectAnimator.ofFloat(arg0, "rotation", 0f, 360f);
 			break;
 		case 1:
 			oa = ObjectAnimator.ofFloat(arg0, "rotationX", 0f, 400f, 400f);
@@ -92,13 +92,12 @@ public class MyProperty extends Activity {
 	/**
 	 * 属性动画控件平行移动
 	 */
-	@SuppressLint("NewApi")
 	private void animation_bt_propertyTranslationXY(View arg0) {
 		// ------------控制空间的位移
 		ObjectAnimator oa = null;
 		switch (count_translation % 4) {
 		case 0:
-			oa = ObjectAnimator.ofFloat(arg0, "translationX", 0f, 400f, 400f);
+			oa = ObjectAnimator.ofFloat(arg0, "translationX", 0,350,250,320,290,300);
 			break;
 		case 1:
 			oa = ObjectAnimator.ofFloat(arg0, "translationY", 0f, 400f, 400f);

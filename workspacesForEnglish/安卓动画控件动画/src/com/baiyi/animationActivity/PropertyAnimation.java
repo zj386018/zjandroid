@@ -16,15 +16,6 @@ import android.widget.Button;
 /**
  * Demo描述:
  * <a href="http://www.it165.net/pro/ydad/" target="_blank" class="keylink">Android</a>中属性动画Property Animation使用示例(一)
- * 
- * 参考资料:
- * 1 http://blog.csdn.net/linmiansheng/article/details/18676845
- *   说明了关于View动画的缺陷,即引入Property Animation的必要性
- * 2 关于属性动画的中文文档,请参见:
- *   http://blog.csdn.net/think_soft/article/details/7703684
- *   http://wiki.eoeandroid.com/Property_Animation
- *   Thank you very much
- *   
  */
 public class PropertyAnimation extends Activity{
 

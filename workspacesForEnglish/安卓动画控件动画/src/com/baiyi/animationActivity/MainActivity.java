@@ -10,8 +10,9 @@ import android.widget.Button;
 public class MainActivity extends Activity implements OnClickListener {
 
 	Button bt_animations;// 第一种动画界面的Button按钮
-	Button bt_propertyAnimation;// 第一种动画界面的Button按钮
-	Button bt_property;
+	Button bt_propertyAnimation;// Myproperty动画
+	Button bt_valueAnimator;// property动画的valueAnimator的用法
+	Button bt_property;//peoperty动画集（网络资源）
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +34,9 @@ public class MainActivity extends Activity implements OnClickListener {
 	
 		bt_property = (Button) findViewById(R.id.main_bt_property);
 		bt_property.setOnClickListener(this);
+		
+		bt_valueAnimator = (Button) findViewById(R.id.main_bt_valueAnimator);
+		bt_valueAnimator.setOnClickListener(this);
 	}
 
 	/**
@@ -56,6 +60,11 @@ public class MainActivity extends Activity implements OnClickListener {
 			Intent intent3 = new Intent(MainActivity.this,
 					PropertyAnimation.class);
 			startActivity(intent3);
+			break;
+		case R.id.main_bt_valueAnimator:
+			Intent intent4 = new Intent(MainActivity.this,
+					ValueAnimator_Activity.class);
+			startActivity(intent4);
 			break;
 
 		default:

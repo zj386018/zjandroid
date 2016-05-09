@@ -1,0 +1,61 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hello_Service" />
+
+    <Button
+        android:id="@+id/main_btStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start Service" />
+
+    <Button
+        android:id="@+id/main_btStop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stop Service" />
+
+    <Button
+        android:id="@+id/main_btStartIntent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start IntentService" />
+
+    <Button
+        android:id="@+id/main_btStopIntent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stop IntentService" />
+
+    <Button
+        android:id="@+id/main_btStartBinder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start BinderService" />
+
+    <Button
+        android:id="@+id/main_btunBinder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="un BinderService" />
+
+    <Button
+        android:id="@+id/main_btstartActivity2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="start Activity2" />
+
+    <Button
+        android:id="@+id/main_btMusic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MusicPlayer" />
+
+</LinearLayout>

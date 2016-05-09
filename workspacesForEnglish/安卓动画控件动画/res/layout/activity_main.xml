@@ -18,6 +18,13 @@
         android:layout_height="wrap_content"
         android:text="属性动画" />
         
+        
+        <Button
+        android:id="@+id/main_bt_valueAnimator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="valueanimator动画" />
+        
         <Button
         android:id="@+id/main_bt_property"
         android:layout_width="wrap_content"

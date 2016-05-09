@@ -1,0 +1,48 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:orientation="vertical"   
+    tools:context=".MainActivity" >
+    <Button
+        android:id="@+id/buttonScaleX"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ScaleX" />
+     <Button
+        android:id="@+id/buttonScale"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Scale" />
+    <Button
+        android:id="@+id/buttonTranslateX"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TranslateX" />
+     <Button
+        android:id="@+id/buttonAlpha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="alpha" />
+     <Button
+        android:id="@+id/buttonProValHolder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PropertyValueHolder" />
+     <Button
+        android:id="@+id/buttonViewPropAnimator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ViewPropertyAnimator" />
+     <Button
+        android:id="@+id/buttonSet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Set" />
+     <Button
+        android:id="@+id/buttonValueAnimator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ValueAnimator" />
+     
+</LinearLayout>

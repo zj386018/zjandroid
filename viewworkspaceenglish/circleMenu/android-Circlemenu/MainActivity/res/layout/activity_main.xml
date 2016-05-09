@@ -1,0 +1,65 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:circle="http://schemas.android.com/apk/res/com.szugyi.circlemenu"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/amb_back"
+    tools:context=".MainActivity" >
+
+    <com.szugyi.circlemenu.view.CircleLayout
+        android:id="@+id/main_circle_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/main_selected_textView"
+        android:layout_gravity="center_horizontal"
+        circle:firstChildPosition="South"
+        circle:isRotating="true"
+        circle:rotateToCenter="true" >
+
+        <!-- circle:circleBackground="@drawable/green"  > -->
+
+        <com.szugyi.circlemenu.view.CircleImageView
+            android:id="@+id/main_facebook_image"
+            circle:name="@string/facebook"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/src_1" />
+
+        <com.szugyi.circlemenu.view.CircleImageView
+            android:id="@+id/main_myspace_image"
+            circle:name="@string/myspace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/src_2" />
+
+        <com.szugyi.circlemenu.view.CircleImageView
+            android:id="@+id/main_google_image"
+            circle:name="@string/google"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/src_3" />
+
+        <com.szugyi.circlemenu.view.CircleImageView
+            android:id="@+id/main_linkedin_image"
+            circle:name="@string/linkedin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/src_4" />
+
+        <com.szugyi.circlemenu.view.CircleImageView
+            android:id="@+id/main_twitter_image"
+            circle:name="@string/twitter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/src_5" />
+
+        <com.szugyi.circlemenu.view.CircleImageView
+            android:id="@+id/main_wordpress_image"
+            circle:name="@string/wordpress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/src_6" />
+    </com.szugyi.circlemenu.view.CircleLayout>
+
+
+</RelativeLayout>
