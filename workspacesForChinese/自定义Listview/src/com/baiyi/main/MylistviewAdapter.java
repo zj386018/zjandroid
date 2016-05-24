@@ -38,7 +38,7 @@ public class MylistviewAdapter extends BaseAdapter {
 	}
 
 	@Override
-	public View getView(int arg0, View arg1, ViewGroup arg2) {
+	public View getView(int arg0, View convertView, ViewGroup arg2) {
 		View view = inflater.inflate(R.layout.listview_item, null);
 		switch (arg0 % 3) {
 		case 0:

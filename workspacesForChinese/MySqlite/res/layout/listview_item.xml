@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="horizontal" >
+    
+    <TextView 
+        android:id="@+id/item_tv_id"
+        android:gravity="center_horizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.2"
+        android:text="id"
+        />
+    <TextView 
+        android:id="@+id/item_tv_name"
+        android:gravity="center_horizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.3"
+        android:text="姓名"
+        />
+    <TextView 
+        android:id="@+id/item_tv_phone"
+        android:gravity="center_horizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:text="电话"
+        />
+    
+      <!-- **如果不是imageview ，而是Button，ImageButton，CheckBox等
+    			会强制获取焦点，而使listview的item无法获得焦点，从而无法被点击。
+    		**而如果有了上面三种控件，可在item布局文件的根布局中使用
+    			android:descendantFocusability="blocksDescendants"
+    			设置之后，item可以获取焦点，上面三种控件也可以获取控件。
+     -->
+    <ImageView
+        android:id="@+id/item_iv_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/delete"
+        />
+    
+
+</LinearLayout>
